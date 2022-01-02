@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.json.JSONTokener;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -71,14 +72,33 @@ public class CareerLengthScraper {
 
 //        Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Michel_Platini").get();
 
+        // Difference between Platini's and Dalglish's Wikipedia pages:
+        // Platini's information isn't directly in tr (table rows); the table with his playing career is inside a tr.
+        // On the other hand, for Dalglish, the rows are all his playing career information.
         Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Kenny_Dalglish").get();
 
         Elements body = doc.select("div#content.mw-body").select("div#bodyContent.vector-body")
                 .select("div#mw-content-text.mw-body-content.mw-content-ltr").select("div.mw-parser-output")
                 .select("table.infobox.vcard"); // https://gyazo.com/49c12c47d1410bb8161cb3fe5b07db43: this is where this path leads you.
 
-        for (Element e : body.select("tr")) {
-            System.out.println(e.toString());
+        boolean debounce = false;
+
+        for (Element e : body.select("tbody").select("tr")) { // This does go through all 25 rows in the V-Table (in Dalglish's case).
+            // The thinking here:
+            // Teams/years played follows directly after the Years / Team / Apps / (Gls) section.
+            // So the section(s) immediately following include team information + years.
+            if (e.select("th.infobox-label").toString().contains("Years")) { // Allows for the special teams/years section to be accessed.
+                debounce = true;
+            }
+
+            if (e.select("th.infobox-label").toString().contains("Total")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
+
+            }
+
+            if (debounce) {
+
+                debounce = false;
+            }
         }
 
 //        System.out.println(body.toString());
