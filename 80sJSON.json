@@ -1,0 +1,812 @@
+{
+	"Michel Platini": {
+	  "nation": "France",
+	  "votes": 447,
+	  "wiki": "https://en.wikipedia.org/wiki/Michel_Platini"
+	},
+	"Karl-Heinz Rummenigge": {
+	  "nation": "West Germany",
+	  "votes": 316,
+	  "wiki": "https://en.wikipedia.org/wiki/Karl-Heinz_Rummenigge"
+	},
+	"Marco van Basten": {
+	  "nation": "Netherlands",
+	  "votes": 268,
+	  "wiki": "https://en.wikipedia.org/wiki/Marco_van_Basten"
+	},
+	"Ruud Gullit": {
+	  "nation": "Netherlands",
+	  "votes": 216,
+	  "wiki": "https://en.wikipedia.org/wiki/Ruud_Gullit"
+	},
+	"Preben Elkjær": {
+	  "nation": "Denmark",
+	  "votes": 143,
+	  "wiki": "https://en.wikipedia.org/wiki/Preben_Elkj%C3%A6r"
+	},
+	"Bernd Schuster": {
+	  "nation": "West Germany",
+	  "votes": 139,
+	  "wiki": "https://en.wikipedia.org/wiki/Bernd_Schuster"
+	},
+	"Emilio Butragueño": {
+	  "nation": "Spain",
+	  "votes": 124,
+	  "wiki": "https://en.wikipedia.org/wiki/Emilio_Butrague%C3%B1o"
+	},
+	"Paolo Rossi": {
+	  "nation": "Italy",
+	  "votes": 118,
+	  "wiki": "https://en.wikipedia.org/wiki/Paolo_Rossi"
+	},
+	"Paulo Futre": {
+	  "nation": "Portugal",
+	  "votes": 98,
+	  "wiki": "https://en.wikipedia.org/wiki/Paulo_Futre"
+	},
+	"Frank Rijkaard": {
+	  "nation": "Netherlands",
+	  "votes": 88,
+	  "wiki": "https://en.wikipedia.org/wiki/Frank_Rijkaard"
+	},
+	"Alain Giresse": {
+	  "nation": "France",
+	  "votes": 85,
+	  "wiki": "https://en.wikipedia.org/wiki/Alain_Giresse"
+	},
+	"Franco Baresi": {
+	  "nation": "Italy",
+	  "votes": 85,
+	  "wiki": "https://en.wikipedia.org/wiki/Franco_Baresi"
+	},
+	"Igor Belanov": {
+	  "nation": "Soviet Union",
+	  "votes": 84,
+	  "wiki": "https://en.wikipedia.org/wiki/Igor_Belanov"
+	},
+	"Ian Rush": {
+	  "nation": "Wales",
+	  "votes": 81,
+	  "wiki": "https://en.wikipedia.org/wiki/Ian_Rush"
+	},
+	"Gary Lineker": {
+	  "nation": "England",
+	  "votes": 76,
+	  "wiki": "https://en.wikipedia.org/wiki/Gary_Lineker"
+	},
+	"Zbigniew Boniek": {
+	  "nation": "Poland",
+	  "votes": 75,
+	  "wiki": "https://en.wikipedia.org/wiki/Zbigniew_Boniek"
+	},
+	"Paul Breitner": {
+	  "nation": "West Germany",
+	  "votes": 65,
+	  "wiki": "https://en.wikipedia.org/wiki/Paul_Breitner"
+	},
+	"Jean Tigana": {
+	  "nation": "France",
+	  "votes": 60,
+	  "wiki": "https://en.wikipedia.org/wiki/Jean_Tigana"
+	},
+	"Bruno Conti": {
+	  "nation": "Italy",
+	  "votes": 52,
+	  "wiki": "https://en.wikipedia.org/wiki/Bruno_Conti"
+	},
+	"Rinat Dasayev": {
+	  "nation": "Soviet Union",
+	  "votes": 51,
+	  "wiki": "https://en.wikipedia.org/wiki/Rinat_Dasayev"
+	},
+	"Oleksiy Mykhaylychenko": {
+	  "nation": "Soviet Union",
+	  "votes": 47,
+	  "wiki": "https://en.wikipedia.org/wiki/Oleksiy_Mykhaylychenko"
+	},
+	"Lothar Matthäus": {
+	  "nation": "West Germany",
+	  "votes": 41,
+	  "wiki": "https://en.wikipedia.org/wiki/Lothar_Matth%C3%A4us"
+	},
+	"Ronald Koeman": {
+	  "nation": "Netherlands",
+	  "votes": 40,
+	  "wiki": "https://en.wikipedia.org/wiki/Ronald_Koeman"
+	},
+	"Bryan Robson": {
+	  "nation": "England",
+	  "votes": 38,
+	  "wiki": "https://en.wikipedia.org/wiki/Bryan_Robson"
+	},
+	"Kenny Dalglish": {
+	  "nation": "Scotland",
+	  "votes": 37,
+	  "wiki": "https://en.wikipedia.org/wiki/Kenny_Dalglish"
+	},
+	"Míchel": {
+	  "nation": "Spain",
+	  "votes": 37,
+	  "wiki": "https://en.wikipedia.org/wiki/M%C3%ADchel_(footballer,_born_1963)"
+	},
+	"Jan Ceulemans": {
+	  "nation": "Belgium",
+	  "votes": 31,
+	  "wiki": "https://en.wikipedia.org/wiki/Jan_Ceulemans"
+	},
+	"Dino Zoff": {
+	  "nation": "Italy",
+	  "votes": 31,
+	  "wiki": "https://en.wikipedia.org/wiki/Dino_Zoff"
+	},
+	"Wilfried Van Moer": {
+	  "nation": "Belgium",
+	  "votes": 30,
+	  "wiki": "https://en.wikipedia.org/wiki/Wilfried_Van_Moer"
+	},
+	"Oleksandr Zavarov": {
+	  "nation": "Soviet Union",
+	  "votes": 29,
+	  "wiki": "https://en.wikipedia.org/wiki/Oleksandr_Zavarov"
+	},
+	"Peter Shilton": {
+	  "nation": "England",
+	  "votes": 27,
+	  "wiki": "https://en.wikipedia.org/wiki/Peter_Shilton"
+	},
+	"Manuel Amoros": {
+	  "nation": "France",
+	  "votes": 27,
+	  "wiki": "https://en.wikipedia.org/wiki/Manuel_Amoros"
+	},
+	"Gordon Strachan": {
+	  "nation": "Scotland",
+	  "votes": 26,
+	  "wiki": "https://en.wikipedia.org/wiki/Gordon_Strachan"
+	},
+	"Jean-Marie Pfaff": {
+	  "nation": "Belgium",
+	  "votes": 26,
+	  "wiki": "https://en.wikipedia.org/wiki/Jean-Marie_Pfaff"
+	},
+	"Allan Simonsen": {
+	  "nation": "Denmark",
+	  "votes": 25,
+	  "wiki": "https://en.wikipedia.org/wiki/Allan_Simonsen"
+	},
+	"Horst Hrubesch": {
+	  "nation": "West Germany",
+	  "votes": 23,
+	  "wiki": "https://en.wikipedia.org/wiki/Horst_Hrubesch"
+	},
+	"Liam Brady": {
+	  "nation": "Republic of Ireland",
+	  "votes": 21,
+	  "wiki": "https://en.wikipedia.org/wiki/Liam_Brady"
+	},
+	"Felix Magath": {
+	  "nation": "West Germany",
+	  "votes": 20,
+	  "wiki": "https://en.wikipedia.org/wiki/Felix_Magath"
+	},
+	"Dragan Stojković": {
+	  "nation": "Yugoslavia",
+	  "votes": 20,
+	  "wiki": "https://en.wikipedia.org/wiki/Dragan_Stojkovi%C4%87"
+	},
+	"Michael Laudrup": {
+	  "nation": "Denmark",
+	  "votes": 19,
+	  "wiki": "https://en.wikipedia.org/wiki/Michael_Laudrup"
+	},
+	"Fernando Chalana": {
+	  "nation": "Portugal",
+	  "votes": 18,
+	  "wiki": "https://en.wikipedia.org/wiki/Fernando_Chalana"
+	},
+	"Graeme Souness": {
+	  "nation": "Scotland",
+	  "votes": 18,
+	  "wiki": "https://en.wikipedia.org/wiki/Graeme_Souness"
+	},
+	"Gianluca Vialli": {
+	  "nation": "Italy",
+	  "votes": 17,
+	  "wiki": "https://en.wikipedia.org/wiki/Gianluca_Vialli"
+	},
+	"Jesper Olsen": {
+	  "nation": "Denmark",
+	  "votes": 16,
+	  "wiki": "https://en.wikipedia.org/wiki/Jesper_Olsen"
+	},
+	"Jürgen Klinsmann": {
+	  "nation": "West Germany",
+	  "votes": 16,
+	  "wiki": "https://en.wikipedia.org/wiki/J%C3%BCrgen_Klinsmann"
+	},
+	"Herbert Prohaska": {
+	  "nation": "Austria",
+	  "votes": 15,
+	  "wiki": "https://en.wikipedia.org/wiki/Herbert_Prohaska"
+	},
+	"Harald Schumacher": {
+	  "nation": "West Germany",
+	  "votes": 15,
+	  "wiki": "https://en.wikipedia.org/wiki/Toni_Schumacher"
+	},
+	"Gheorghe Hagi": {
+	  "nation": "Romania",
+	  "votes": 15,
+	  "wiki": "https://en.wikipedia.org/wiki/Gheorghe_Hagi"
+	},
+	"Oleg Blokhin": {
+	  "nation": "Soviet Union",
+	  "votes": 14,
+	  "wiki": "https://en.wikipedia.org/wiki/Oleg_Blokhin"
+	},
+	"Fernando Gomes": {
+	  "nation": "Portugal",
+	  "votes": 14,
+	  "wiki": "https://en.wikipedia.org/wiki/Fernando_Gomes_(footballer)"
+	},
+	"Morten Olsen": {
+	  "nation": "Denmark",
+	  "votes": 14,
+	  "wiki": "https://en.wikipedia.org/wiki/Morten_Olsen"
+	},
+	"Glenn Hysén": {
+	  "nation": "Sweden",
+	  "votes": 14,
+	  "wiki": "https://en.wikipedia.org/wiki/Glenn_Hys%C3%A9n"
+	},
+	"Søren Lerby": {
+	  "nation": "Denmark",
+	  "votes": 14,
+	  "wiki": "https://en.wikipedia.org/wiki/S%C3%B8ren_Lerby"
+	},
+	"Erwin Vandenbergh": {
+	  "nation": "Belgium",
+	  "votes": 13,
+	  "wiki": "https://en.wikipedia.org/wiki/Erwin_Vandenbergh"
+	},
+	"Bruno Pezzey": {
+	  "nation": "Austria",
+	  "votes": 13,
+	  "wiki": "https://en.wikipedia.org/wiki/Bruno_Pezzey"
+	},
+	"Pierre Littbarski": {
+	  "nation": "West Germany",
+	  "votes": 13,
+	  "wiki": "https://en.wikipedia.org/wiki/Pierre_Littbarski"
+	},
+	"Luis Arconada": {
+	  "nation": "Spain",
+	  "votes": 12,
+	  "wiki": "https://en.wikipedia.org/wiki/Luis_Arconada"
+	},
+	"Hans-Peter Briegel": {
+	  "nation": "West Germany",
+	  "votes": 12,
+	  "wiki": "https://en.wikipedia.org/wiki/Hans-Peter_Briegel"
+	},
+	"John Barnes": {
+	  "nation": "England",
+	  "votes": 12,
+	  "wiki": "https://en.wikipedia.org/wiki/John_Barnes"
+	},
+	"Michel Preud'homme": {
+	  "nation": "Belgium",
+	  "votes": 12,
+	  "wiki": "https://en.wikipedia.org/wiki/Michel_Preud%27homme"
+	},
+	"Hansi Müller": {
+	  "nation": "West Germany",
+	  "votes": 11,
+	  "wiki": "https://en.wikipedia.org/wiki/Hansi_M%C3%BCller"
+	},
+	"Alessandro Altobelli": {
+	  "nation": "Italy",
+	  "votes": 11,
+	  "wiki": "https://en.wikipedia.org/wiki/Alessandro_Altobelli"
+	},
+	"Maxime Bossis": {
+	  "nation": "France",
+	  "votes": 11,
+	  "wiki": "https://en.wikipedia.org/wiki/Maxime_Bossis"
+	},
+	"Manfred Kaltz": {
+	  "nation": "West Germany",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Manfred_Kaltz"
+	},
+	"Ramaz Shengelia": {
+	  "nation": "Soviet Union",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Ramaz_Shengelia"
+	},
+	"Franky Vercauteren": {
+	  "nation": "Belgium",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Franky_Vercauteren"
+	},
+	"Rudi Völler": {
+	  "nation": "West Germany",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Rudi_V%C3%B6ller"
+	},
+	"Oleh Protasov": {
+	  "nation": "Soviet Union",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Oleh_Protasov"
+	},
+	"Luis Fernández": {
+	  "nation": "France",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Luis_Fernandez"
+	},
+	"Helmuth Duckadam": {
+	  "nation": "Romania",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Helmuth_Duckadam"
+	},
+	"Jean-Pierre Papin": {
+	  "nation": "France",
+	  "votes": 10,
+	  "wiki": "https://en.wikipedia.org/wiki/Jean-Pierre_Papin"
+	},
+	"Ruud Krol": {
+	  "nation": "Netherlands",
+	  "votes": 9,
+	  "wiki": "https://en.wikipedia.org/wiki/Ruud_Krol"
+	},
+	"Alexsandr Chivadze": {
+	  "nation": "Soviet Union",
+	  "votes": 9,
+	  "wiki": "https://en.wikipedia.org/wiki/Aleksandre_Chivadze"
+	},
+	"Klaus Allofs": {
+	  "nation": "West Germany",
+	  "votes": 9,
+	  "wiki": "https://en.wikipedia.org/wiki/Klaus_Allofs"
+	},
+	"Safet Sušić": {
+	  "nation": "Yugoslavia",
+	  "votes": 8,
+	  "wiki": "https://en.wikipedia.org/wiki/Safet_Su%C5%A1i%C4%87"
+	},
+	"Giancarlo Antognoni": {
+	  "nation": "Italy",
+	  "votes": 7,
+	  "wiki": "https://en.wikipedia.org/wiki/Giancarlo_Antognoni"
+	},
+	"John Wark": {
+	  "nation": "Scotland",
+	  "votes": 7,
+	  "wiki": "https://en.wikipedia.org/wiki/John_Wark"
+	},
+	"David Kipiani": {
+	  "nation": "Soviet Union",
+	  "votes": 6,
+	  "wiki": "https://en.wikipedia.org/wiki/David_Kipiani"
+	},
+	"Andras Toroczik": {
+	  "nation": "Hungary",
+	  "votes": 6,
+	  "wiki": "https://en.wikipedia.org/wiki/Andr%C3%A1s_T%C3%B6r%C5%91csik"
+	},
+	"Eric Gerets": {
+	  "nation": "Belgium",
+	  "votes": 6,
+	  "wiki": "https://en.wikipedia.org/wiki/Eric_Gerets"
+	},
+	"Antonio Cabrini": {
+	  "nation": "Italy",
+	  "votes": 6,
+	  "wiki": "https://en.wikipedia.org/wiki/Antonio_Cabrini"
+	},
+	"Mark Hateley": {
+	  "nation": "England",
+	  "votes": 6,
+	  "wiki": "https://en.wikipedia.org/wiki/Mark_Hateley"
+	},
+	"Oleh Kuznetsov": {
+	  "nation": "Soviet Union",
+	  "votes": 6,
+	  "wiki": "https://en.wikipedia.org/wiki/Oleh_Kuznetsov"
+	},
+	"Tibor Nyilasi": {
+	  "nation": "Hungary",
+	  "votes": 5,
+	  "wiki": "https://en.wikipedia.org/wiki/Tibor_Nyilasi"
+	},
+	"Norman Whiteside": {
+	  "nation": "Northern Ireland",
+	  "votes": 5,
+	  "wiki": "https://en.wikipedia.org/wiki/Norman_Whiteside"
+	},
+	"Enzo Scifo": {
+	  "nation": "Belgium",
+	  "votes": 5,
+	  "wiki": "https://en.wikipedia.org/wiki/Enzo_Scifo"
+	},
+	"Rafael Gordillo": {
+	  "nation": "Spain",
+	  "votes": 5,
+	  "wiki": "https://en.wikipedia.org/wiki/Rafael_Gordillo"
+	},
+	"Vladimir Petrovic": {
+	  "nation": "Yugoslavia",
+	  "votes": 5,
+	  "wiki": "https://en.wikipedia.org/wiki/Vladimir_Petrovi%C4%87"
+	},
+	"Terry McDermott": {
+	  "nation": "England",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Terry_McDermott"
+	},
+	"Viv Anderson": {
+	  "nation": "England",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Viv_Anderson"
+	},
+	"Francesco Graziani": {
+	  "nation": "Italy",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Francesco_Graziani"
+	},
+	"Zlatko Vujovic": {
+	  "nation": "Yugoslavia",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Zlatko_Vujovi%C4%87"
+	},
+	"Trevor Brooking": {
+	  "nation": "England",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Trevor_Brooking"
+	},
+	"Neville Southall": {
+	  "nation": "Wales",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Neville_Southall"
+	},
+	"Anatoliy Demyanenko": {
+	  "nation": "Soviet Union",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Anatoliy_Demyanenko"
+	},
+	"Toni Schumacher": {
+	  "nation": "West Germany",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Toni_Schumacher"
+	},
+	"Toni Polster": {
+	  "nation": "Austria",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Toni_Polster"
+	},
+	"Tanju Çolak": {
+	  "nation": "Turkey",
+	  "votes": 4,
+	  "wiki": "https://en.wikipedia.org/wiki/Tanju_%C3%87olak"
+	},
+	"Ladislav Vízek": {
+	  "nation": "Czechoslovakia",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Ladislav_V%C3%ADzek"
+	},
+	"Manuel Bento": {
+	  "nation": "Portugal",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Manuel_Bento"
+	},
+	"Frank Stapleton": {
+	  "nation": "Ireland",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Frank_Stapleton"
+	},
+	"Carlos Manuel": {
+	  "nation": "Portugal",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Carlos_Manuel"
+	},
+	"Vasilis Hatzipanagis": {
+	  "nation": "Greece",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Vasilis_Hatzipanagis"
+	},
+	"Costică Ștefănescu": {
+	  "nation": "Romania",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Costic%C4%83_%C8%98tef%C4%83nescu"
+	},
+	"Rui Jordão": {
+	  "nation": "Portugal",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Rui_Jord%C3%A3o"
+	},
+	"John Sivebæk": {
+	  "nation": "Denmark",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/John_Siveb%C3%A6k"
+	},
+	"Pavlo Yakovenko": {
+	  "nation": "Soviet Union",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Pavlo_Yakovenko"
+	},
+	"Paul McGrath": {
+	  "nation": "Republic of Ireland",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Paul_McGrath_(footballer)"
+	},
+	"Andreas Brehme": {
+	  "nation": "West Germany",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Andreas_Brehme"
+	},
+	"Karl-Heinz Riedle": {
+	  "nation": "West Germany",
+	  "votes": 3,
+	  "wiki": "https://en.wikipedia.org/wiki/Karl-Heinz_Riedle"
+	},
+	"Frank Arnesen": {
+	  "nation": "Denmark",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Frank_Arnesen"
+	},
+	"Antonín Panenka": {
+	  "nation": "Czechoslovakia",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Anton%C3%ADn_Panenka"
+	},
+	"David O'Leary": {
+	  "nation": "Republic of Ireland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/David_O%27Leary"
+	},
+	"Vladimir Petrović": {
+	  "nation": "SFR Yugoslavia",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Vladimir_Petrovi%C4%87"
+	},
+	"Grzegorz Lato": {
+	  "nation": "Poland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Grzegorz_Lato"
+	},
+	"Wlodzimierz Smolarek": {
+	  "nation": "Poland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/W%C5%82odzimierz_Smolarek"
+	},
+	"Frans Thijssen": {
+	  "nation": "Netherlands",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Frans_Thijssen"
+	},
+	"Gaetano Scirea": {
+	  "nation": "Italy",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Gaetano_Scirea"
+	},
+	"Torbjörn Nilsson": {
+	  "nation": "Sweden",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Torbj%C3%B6rn_Nilsson"
+	},
+	"Fedor Cherenkov": {
+	  "nation": "Soviet Union",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Fyodor_Cherenkov"
+	},
+	"Paul McStay": {
+	  "nation": "Scotland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Paul_McStay"
+	},
+	"Lajos Détári": {
+	  "nation": "Hungary",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Lajos_D%C3%A9t%C3%A1ri"
+	},
+	"Vahid Halilhodžić": {
+	  "nation": "Yugoslavia",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Vahid_Halilhod%C5%BEi%C4%87"
+	},
+	"Peter Reid": {
+	  "nation": "England",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Peter_Reid"
+	},
+	"Pat Jennings": {
+	  "nation": "Northern Ireland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Pat_Jennings"
+	},
+	"Karlheinz Förster": {
+	  "nation": "West Germany",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Karlheinz_F%C3%B6rster"
+	},
+	"Peter Beardsley": {
+	  "nation": "England",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Peter_Beardsley"
+	},
+	"Józef Młynarczyk": {
+	  "nation": "Poland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/J%C3%B3zef_M%C5%82ynarczyk"
+	},
+	"Heinz Hermann": {
+	  "nation": "Switzerland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Heinz_Hermann"
+	},
+	"Ally McCoist": {
+	  "nation": "Scotland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Ally_McCoist"
+	},
+	"Rodion Cămătaru": {
+	  "nation": "Romania",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Rodion_C%C4%83m%C4%83taru"
+	},
+	"Flemming Povlsen": {
+	  "nation": "Denmark",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Flemming_Povlsen"
+	},
+	"Walter Zenga": {
+	  "nation": "Italy",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Walter_Zenga"
+	},
+	"Packie Bonner": {
+	  "nation": "Republic of Ireland",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Packie_Bonner"
+	},
+	"Andreas Möller": {
+	  "nation": "West Germany",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Andreas_M%C3%B6ller"
+	},
+	"Julio Salinas": {
+	  "nation": "Spain",
+	  "votes": 2,
+	  "wiki": "https://en.wikipedia.org/wiki/Julio_Salinas"
+	},
+	"Marcel Răducanu": {
+	  "nation": "Romania",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Marcel_R%C4%83ducanu"
+	},
+	"Trevor Francis": {
+	  "nation": "England",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Trevor_Francis"
+	},
+	"Zdeněk Nehoda": {
+	  "nation": "Czechoslovakia",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Zden%C4%9Bk_Nehoda"
+	},
+	"António Oliveira": {
+	  "nation": "Portugal",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Ant%C3%B3nio_Oliveira"
+	},
+	"Uli Stielike": {
+	  "nation": "West Germany",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Uli_Stielike"
+	},
+	"Jesús Zamora": {
+	  "nation": "Spain",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Jes%C3%BAs_Mar%C3%ADa_Zamora"
+	},
+	"Walter Schachner": {
+	  "nation": "Austria",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Walter_Schachner"
+	},
+	"Marius Trésor": {
+	  "nation": "France",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Marius_Tr%C3%A9sor"
+	},
+	"Stoycho Mladenov": {
+	  "nation": "Bulgaria",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Stoycho_Mladenov"
+	},
+	"Silviu Lung": {
+	  "nation": "Romania",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Silviu_Lung"
+	},
+	"Steve Archibald": {
+	  "nation": "Scotland",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Steve_Archibald"
+	},
+	"Georgi Dimitrov": {
+	  "nation": "Bulgaria",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Georgi_Dimitrov"
+	},
+	"Gary Stevens": {
+	  "nation": "England",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Gary_Stevens_(footballer,_born_1962)"
+	},
+	"Andreas Thom": {
+	  "nation": "East Germany",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Andreas_Thom"
+	},
+	"Ladislav Vizek": {
+	  "nation": "Czechoslovakia",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Ladislav_V%C3%ADzek"
+	},
+	"Marco Tardelli": {
+	  "nation": "Italy",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Marco_Tardelli"
+	},
+	"Antonio Maceda": {
+	  "nation": "Spain",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Antonio_Maceda"
+	},
+	"Glenn Hoddle": {
+	  "nation": "England",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Glenn_Hoddle"
+	},
+	"Sokol Kushta": {
+	  "nation": "Albania",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Sokol_Kushta"
+	},
+	"Dimitris Saravakos": {
+	  "nation": "Greece",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Dimitris_Saravakos"
+	},
+	"Roberto Mancini": {
+	  "nation": "Italy",
+	  "votes": 1,
+	  "wiki": "https://it.wikipedia.org/wiki/Roberto_Mancini"
+	},
+	"Dejan Savićević": {
+	  "nation": "Yugoslavia",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Dejan_Savi%C4%87evi%C4%87"
+	},
+	"Thomas Häßler": {
+	  "nation": "West Germany",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Thomas_H%C3%A4%C3%9Fler"
+	},
+	"Robby Langers": {
+	  "nation": "Luxembourg",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Robby_Langers"
+	},
+	"Paolo Maldini": {
+	  "nation": "Italy",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Paolo_Maldini"
+	},
+	"Theo Snelders": {
+	  "nation": "Netherlands",
+	  "votes": 1,
+	  "wiki": "https://en.wikipedia.org/wiki/Theo_Snelders"
+	}
+}
