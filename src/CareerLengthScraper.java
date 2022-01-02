@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class CareerLengthScraper {
@@ -49,23 +50,38 @@ public class CareerLengthScraper {
         JSONObject jObj = (JSONObject) obj;
 
         // Step 3.
-        for (String name: nameList) { // Successfully iterates through the nameList; if you use jObj.get(name), you access the JSON file.
-            String arr[] = jObj.get(name).toString().split(",");
-            String wikiLink = arr[1]; // Leaves me this format: ("wiki":"https:\/\/it.wikipedia.org\/wiki\/Roberto_Mancini")
+//        for (String name: nameList) { // Successfully iterates through the nameList; if you use jObj.get(name), you access the JSON file.
+//            String arr[] = jObj.get(name).toString().split(",");
+//            String wikiLink = arr[1]; // Leaves me this format: ("wiki":"https:\/\/it.wikipedia.org\/wiki\/Roberto_Mancini")
+//
+//            wikiLink = wikiLink.replaceFirst("wiki", "").replace("\"", "").replaceAll("\\\\","").substring(1); // Generates all 162 links.
+//
+//            if (name.equals("Míchel")) {
+//                wikiLink = "https://en.wikipedia.org/wiki/M%C3%ADchel_(footballer,_born_1963)"; // Michel is a special case.
+//            } else if (name.equals("Gary Stevens")) {
+//                wikiLink = "https://en.wikipedia.org/wiki/Gary_Stevens_(footballer,_born_1962)"; // Stevens is also a special case.
+//            }
+//
+//            Document doc = Jsoup.connect(wikiLink).get();
+////            Elements body = doc.select("table.infobox.vcard tr").select("tbody"); // Grabs the senior career table of the wikipedia pages.
+//            Elements body = doc.select("div#content.mw-body"); // Grabs the senior career table of the wikipedia pages.
+//
+//            System.out.println(body.toString());
+//        }
 
-            wikiLink = wikiLink.replaceFirst("wiki", "").replace("\"", "").replaceAll("\\\\","").substring(1); // Generates all 162 links.
+//        Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Michel_Platini").get();
 
-            if (name.equals("Míchel")) {
-                wikiLink = "https://en.wikipedia.org/wiki/M%C3%ADchel_(footballer,_born_1963)"; // Michel is a special case.
-            } else if (name.equals("Gary Stevens")) {
-                wikiLink = "https://en.wikipedia.org/wiki/Gary_Stevens_(footballer,_born_1962)"; // Stevens is also a special case.
-            }
+        Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Kenny_Dalglish").get();
 
-            Document doc = Jsoup.connect(wikiLink).timeout(6000).get();
-            Elements body = doc.select("table.infobox.vcard tr").select("tbody"); // Grabs the senior career table of the wikipedia pages.
+        Elements body = doc.select("div#content.mw-body").select("div#bodyContent.vector-body")
+                .select("div#mw-content-text.mw-body-content.mw-content-ltr").select("div.mw-parser-output")
+                .select("table.infobox.vcard"); // https://gyazo.com/49c12c47d1410bb8161cb3fe5b07db43: this is where this path leads you.
 
-            System.out.println(body.toString());
+        for (Element e : body.select("tr")) {
+            System.out.println(e.toString());
         }
+
+//        System.out.println(body.toString());
 
     }
 }
