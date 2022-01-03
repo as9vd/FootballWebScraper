@@ -88,21 +88,28 @@ public class CareerLengthScraper {
             // The thinking here:
             // Teams/years played follows directly after the Years / Team / Apps / (Gls) section.
             // So the section(s) immediately following include team information + years.
-            if (e.select("th.infobox-label").toString().contains("Years")) { // Allows for the special teams/years section to be accessed.
-                debounce = true;
-            }
-
             if (e.select("th.infobox-label").toString().contains("Total")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
                 debounce = false;
             }
 
-            // HashMap within a HashMap: key is player name, value is a HashMap of player clubs with values of years played.
             if (debounce) {
-//                if (playerCareers.containsKey("Kenny Dalglish")) { // e.g. If we've already added him and his first club to the HashMap.
+                HashMap<String, String> inner = playerCareers.get("Kenny Dalglish"); // Gets the inner HashMap.
 
-                System.out.println(e.select("th.infobox-label").select("span").text()); // Successfully prints out years Dalglish played in his career.
-//                playerCareers.put("Kenny Dalglish", new HashMap<>());
+                if (inner == null) { // e.g. if the HashMap hasn't been initialised yet.
+                    inner = new HashMap<>();
+                } else { // e.g. if it has.
+                    inner.put(e.select("td.infobox-data.infobox-data-a").text(), e.select("span").text());
+                }
+
+                System.out.println(e.select("td.infobox-data.infobox-data-a").text() + ": " + e.select("span").text());
             }
+
+            if (e.select("th.infobox-label").toString().contains("Years")) { // Allows for the special teams/years section to be accessed.
+                debounce = true;
+            }
+
+            // HashMap within a HashMap: key is player name, value is a HashMap of player clubs with values of years played.
+
         }
 
 //        System.out.println(body.toString());
