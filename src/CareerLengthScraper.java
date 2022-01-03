@@ -103,8 +103,35 @@ public class CareerLengthScraper {
             }
         }
 
-        System.out.println("Kenneth played for Celtic from " + playerCareers.get("Kenny Dalglish").get("Celtic"));
-        System.out.println(playerCareers.get("Kenny Dalglish").get("Liverpool"));
+        // Now we try this for Platini.
+        doc = Jsoup.connect("https://en.wikipedia.org/wiki/Grzegorz_Lato").get();
 
+        body = doc.select("div#content.mw-body").select("div#bodyContent.vector-body")
+                .select("div#mw-content-text.mw-body-content.mw-content-ltr").select("div.mw-parser-output")
+                .select("table.infobox.vcard");
+
+        debounce = false;
+        inner = new HashMap<>();
+
+        for (Element e : body.select("tbody").select("tr")) {
+            if (e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("caption.infobox-title.fn").text().contains("career")) { // https://gyazo.com/19afe79e42e3dffef172945a2ca1ce90: where we're at.
+                for (Element row : e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("tbody").select("tr")) { // Goes throw the rows of the table, starting from underneath "Association football career."
+                    if (row.text().contains("Total")) {
+                        debounce = false;
+                        playerCareers.put("Michel Platini", inner);
+                    }
+
+                    if (debounce) {
+                        inner.put(row.select("td.infobox-data.infobox-data-a").select("td.infobox-data.infobox-data-a").text(), row.select("th.infobox-label").select("span").text());
+                    }
+
+                    if (row.text().contains("Years")) {
+                        debounce = true;
+                    }
+                }
+            }
+        }
+
+        System.out.println(playerCareers.get("Michel Platini"));
     }
 }
