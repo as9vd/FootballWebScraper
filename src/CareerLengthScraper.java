@@ -14,7 +14,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-// Fix the bollocks with players playing for the same club twice.
+// 1. Vladimir Petrovic is a duplicate (fix issue with accent marks).
+// 2. Multiple stints issue solution not attempted for special pages (e.g. Lato, Dejan Savicevic).
 
 public class CareerLengthScraper {
     // THE GENERAL GIST:
@@ -58,9 +59,9 @@ public class CareerLengthScraper {
         for (String name: nameList) { // Successfully iterates through the nameList; if you use jObj.get(name), you access the JSON file.
             String arr[] = jObj.get(name).toString().split(",");
             String wikiLink = arr[1]; // Leaves me this format: ("wiki":"https:\/\/it.wikipedia.org\/wiki\/Roberto_Mancini")
-//
+
             wikiLink = wikiLink.replaceFirst("wiki", "").replace("\"", "").replaceAll("\\\\","").substring(1); // Generates all 162 links.
-//
+
             if (name.equals("Míchel")) {
                 wikiLink = "https://en.wikipedia.org/wiki/M%C3%ADchel_(footballer,_born_1963)"; // Michel is a special case.
             } else if (name.equals("Gary Stevens")) {
@@ -96,15 +97,26 @@ public class CareerLengthScraper {
                         playerCareers.put(name, inner);
                     }
 
+                    if (e.select("td.infobox-data.infobox-data-a").text().contains("→")) {
+//                        System.out.println(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll("loan", "").replaceAll("trial", "")); // Removing all the loan/trial formatting.
+                    }
+
                     if (debounce) {
-//                        System.out.println(e.select("td.infobox-data.infobox-data-a").text().replaceAll("\\s", ""));
-
-                        if (inner.containsKey(e.select("td.infobox-data.infobox-data-a").text().replaceAll("\\s", ""))) { // Checking for if the footballer played for the same club twice (e.g. Frank Rijkaard and John Wark).
+                        if (inner.containsKey(e.select("td.infobox-data.infobox-data-a").text())) { // Checking for if the footballer played for the same club twice (e.g. Frank Rijkaard and John Wark).
                             inner.put(e.select("td.infobox-data.infobox-data-a").text(), inner.get(e.select("td.infobox-data.infobox-data-a").text()) + ", " + e.select("span").text());
-//                            System.out.println(inner.get(e.select("td.infobox-data.infobox-data-a").text()) + ", " + e.select("span").text());
-//                            System.out.println("boner");
                             continue;
+                        }
 
+                        if (e.select("td.infobox-data.infobox-data-a").text().contains("→")) {
+                            if (inner.containsKey(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""))) {
+                                inner.put(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""), inner.get(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", "")) + ", " + e.select("span").text());
+
+                                continue;
+                            }
+
+                            inner.put(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""), e.select("span").text());
+
+                            continue;
                         }
 
                         inner.put(e.select("td.infobox-data.infobox-data-a").text(), e.select("span").text());
@@ -124,6 +136,11 @@ public class CareerLengthScraper {
                             }
 
                             if (debounce) {
+//                                if (inner.containsKey(row.select("td.infobox-data.infobox-data-a").text().replaceAll("\\s", ""))) { // Checking for if the footballer played for the same club twice (e.g. Frank Rijkaard and John Wark).
+//                                    inner.put(e.select("td.infobox-data.infobox-data-a").text(), inner.get(e.select("td.infobox-data.infobox-data-a").text()) + ", " + e.select("span").text());
+//                                    continue;
+//                                }
+
                                 inner.put(row.select("td.infobox-data.infobox-data-a").select("td.infobox-data.infobox-data-a").text(), row.select("th.infobox-label").select("span").text());
                             }
 
