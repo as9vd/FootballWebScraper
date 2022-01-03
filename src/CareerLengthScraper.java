@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import jdk.swing.interop.SwingInterOpUtils;
 import org.json.simple.JSONObject;
@@ -22,7 +23,6 @@ public class CareerLengthScraper {
     // 2. Store the names into some data structure (an ArrayList for ease).
     // 3. Iterate through the JSON file using the names in the ArrayList.
     // 4. Scrape through each name's Wikipedia page to find the career length of the footballer in question.
-        // 4a. This step might be a bit more complex.
 
     public static void main(String[] args) throws IOException, ParseException {
         BufferedReader reader;
@@ -154,8 +154,23 @@ public class CareerLengthScraper {
                     }
                 }
             }
-
-            System.out.println(playerCareers.get(name));
         }
+
+        // Step 4.
+        // This HashMap stores the length of a player's career with the player's name.
+        // We will find the lengths of the player's career by some careful string manipulation with the years played for each club..
+        HashMap<String, Integer> careerLengths = new HashMap<>();
+
+         for (Map.Entry entry : playerCareers.entrySet()) { // For each player.
+             Map<String, String> childMap = (Map<String, String>) entry.getValue();
+
+             for (Map.Entry<String, String> entry2 : childMap.entrySet()) { // For each player's clubs/years HashMap.
+                 String childKey = entry2.getKey(); // Clubs.
+                 String childValue = entry2.getValue(); // Years.
+
+                 // Split each duration and add it to a separate list.
+             }
+         }
+
     }
 }
