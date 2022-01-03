@@ -2,8 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
-import org.json.JSONTokener;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -82,6 +82,7 @@ public class CareerLengthScraper {
                 .select("table.infobox.vcard"); // https://gyazo.com/49c12c47d1410bb8161cb3fe5b07db43: this is where this path leads you.
 
         boolean debounce = false;
+        HashMap<String, HashMap<String, String>> playerCareers = new HashMap<>();
 
         for (Element e : body.select("tbody").select("tr")) { // This does go through all 25 rows in the V-Table (in Dalglish's case).
             // The thinking here:
@@ -92,12 +93,15 @@ public class CareerLengthScraper {
             }
 
             if (e.select("th.infobox-label").toString().contains("Total")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
-
+                debounce = false;
             }
 
+            // HashMap within a HashMap: key is player name, value is a HashMap of player clubs with values of years played.
             if (debounce) {
+//                if (playerCareers.containsKey("Kenny Dalglish")) { // e.g. If we've already added him and his first club to the HashMap.
 
-                debounce = false;
+                System.out.println(e.select("th.infobox-label").select("span").text()); // Successfully prints out years Dalglish played in his career.
+//                playerCareers.put("Kenny Dalglish", new HashMap<>());
             }
         }
 
