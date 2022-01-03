@@ -83,6 +83,7 @@ public class CareerLengthScraper {
 
         boolean debounce = false;
         HashMap<String, HashMap<String, String>> playerCareers = new HashMap<>();
+        HashMap<String, String> inner = new HashMap<>(); // Creates the inner HashMap of the footballer's HashMap.
 
         for (Element e : body.select("tbody").select("tr")) { // This does go through all 25 rows in the V-Table (in Dalglish's case).
             // The thinking here:
@@ -90,29 +91,20 @@ public class CareerLengthScraper {
             // So the section(s) immediately following include team information + years.
             if (e.select("th.infobox-label").toString().contains("Total")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
                 debounce = false;
+                playerCareers.put("Kenny Dalglish", inner);
             }
 
             if (debounce) {
-                HashMap<String, String> inner = playerCareers.get("Kenny Dalglish"); // Gets the inner HashMap.
-
-                if (inner == null) { // e.g. if the HashMap hasn't been initialised yet.
-                    inner = new HashMap<>();
-                } else { // e.g. if it has.
-                    inner.put(e.select("td.infobox-data.infobox-data-a").text(), e.select("span").text());
-                }
-
-                System.out.println(e.select("td.infobox-data.infobox-data-a").text() + ": " + e.select("span").text());
+                inner.put(e.select("td.infobox-data.infobox-data-a").text(), e.select("span").text());
             }
 
             if (e.select("th.infobox-label").toString().contains("Years")) { // Allows for the special teams/years section to be accessed.
                 debounce = true;
             }
-
-            // HashMap within a HashMap: key is player name, value is a HashMap of player clubs with values of years played.
-
         }
 
-//        System.out.println(body.toString());
+        System.out.println("Kenneth played for Celtic from " + playerCareers.get("Kenny Dalglish").get("Celtic"));
+        System.out.println(playerCareers.get("Kenny Dalglish").get("Liverpool"));
 
     }
 }
