@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import jdk.swing.interop.SwingInterOpUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -13,16 +14,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-// ISSUES TO DEBUG:
-// 1. Players who've played for the same club multiple times (e.g. Rijkaard for Ajax, Wark with Ipswich).
-// 2. Players who've only played for one club their entire life (e.g. Baresi and Maldini for Milan).
-// 3. Players who've come out of retirement for a throwaway match (e.g. Matthaus for Herzogenaurach).
-// 4. Players with unknown appearances, messing up the Total section.
-
-// All in all, make sure that the appearance of "Total" isn't the only determinant of whether or not we've iterated through the right amount of rows.
-// Also, fix the bollocks with players playing for the same club twice.
-
-// Players with null (16): Franco Baresi, Oleksandr Zavarov, Horst Hrubesch, Andras Toroczik, Ladislav Vízek, Antonín Panenka, Paul McStay, Józef Młynarczyk, Packie Bonner, Jesús Zamora, Walter Schachner, Ladislav Vizek, Antonio Maceda, Sokol Kushta, Paolo Maldini, and Theo Snelders.
+// Fix the bollocks with players playing for the same club twice.
 
 public class CareerLengthScraper {
     // THE GENERAL GIST:
@@ -99,12 +91,22 @@ public class CareerLengthScraper {
                     // The thinking here:
                     // Teams/years played follows directly after the Years / Team / Apps / (Gls) section.
                     // So the section(s) immediately following include team information + years.
-                    if (e.select("th.infobox-label").toString().contains("Total")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
+                    if (e.select("th.infobox-label").toString().contains("Total") || e.text().contains("National team")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
                         debounce = false;
                         playerCareers.put(name, inner);
                     }
 
                     if (debounce) {
+//                        System.out.println(e.select("td.infobox-data.infobox-data-a").text().replaceAll("\\s", ""));
+
+                        if (inner.containsKey(e.select("td.infobox-data.infobox-data-a").text().replaceAll("\\s", ""))) { // Checking for if the footballer played for the same club twice (e.g. Frank Rijkaard and John Wark).
+                            inner.put(e.select("td.infobox-data.infobox-data-a").text(), inner.get(e.select("td.infobox-data.infobox-data-a").text()) + ", " + e.select("span").text());
+//                            System.out.println(inner.get(e.select("td.infobox-data.infobox-data-a").text()) + ", " + e.select("span").text());
+//                            System.out.println("boner");
+                            continue;
+
+                        }
+
                         inner.put(e.select("td.infobox-data.infobox-data-a").text(), e.select("span").text());
                     }
 
@@ -116,7 +118,7 @@ public class CareerLengthScraper {
                 for (Element e : body.select("tbody").select("tr")) {
                     if (e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("caption.infobox-title.fn").text().contains("career")) { // https://gyazo.com/19afe79e42e3dffef172945a2ca1ce90: where we're at.
                         for (Element row : e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("tbody").select("tr")) { // Goes throw the rows of the table, starting from underneath "Association football career."
-                            if (row.text().contains("Total")) {
+                            if (row.text().contains("Total") || row.text().contains("National team")) {
                                 debounce = false;
                                 playerCareers.put(name, inner);
                             }
