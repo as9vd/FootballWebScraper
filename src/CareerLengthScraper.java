@@ -13,6 +13,17 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+// ISSUES TO DEBUG:
+// 1. Players who've played for the same club multiple times (e.g. Rijkaard for Ajax, Wark with Ipswich).
+// 2. Players who've only played for one club their entire life (e.g. Baresi and Maldini for Milan).
+// 3. Players who've come out of retirement for a throwaway match (e.g. Matthaus for Herzogenaurach).
+// 4. Players with unknown appearances, messing up the Total section.
+
+// All in all, make sure that the appearance of "Total" isn't the only determinant of whether or not we've iterated through the right amount of rows.
+// Also, fix the bollocks with players playing for the same club twice.
+
+// Players with null (16): Franco Baresi, Oleksandr Zavarov, Horst Hrubesch, Andras Toroczik, Ladislav Vízek, Antonín Panenka, Paul McStay, Józef Młynarczyk, Packie Bonner, Jesús Zamora, Walter Schachner, Ladislav Vizek, Antonio Maceda, Sokol Kushta, Paolo Maldini, and Theo Snelders.
+
 public class CareerLengthScraper {
     // THE GENERAL GIST:
     // 1. Split the 80sFootballerList into two parts: name and votes.
@@ -50,88 +61,79 @@ public class CareerLengthScraper {
 
         JSONObject jObj = (JSONObject) obj;
 
-        // Step 3.
-//        for (String name: nameList) { // Successfully iterates through the nameList; if you use jObj.get(name), you access the JSON file.
-//            String arr[] = jObj.get(name).toString().split(",");
-//            String wikiLink = arr[1]; // Leaves me this format: ("wiki":"https:\/\/it.wikipedia.org\/wiki\/Roberto_Mancini")
-//
-//            wikiLink = wikiLink.replaceFirst("wiki", "").replace("\"", "").replaceAll("\\\\","").substring(1); // Generates all 162 links.
-//
-//            if (name.equals("Míchel")) {
-//                wikiLink = "https://en.wikipedia.org/wiki/M%C3%ADchel_(footballer,_born_1963)"; // Michel is a special case.
-//            } else if (name.equals("Gary Stevens")) {
-//                wikiLink = "https://en.wikipedia.org/wiki/Gary_Stevens_(footballer,_born_1962)"; // Stevens is also a special case.
-//            }
-//
-//            Document doc = Jsoup.connect(wikiLink).get();
-////            Elements body = doc.select("table.infobox.vcard tr").select("tbody"); // Grabs the senior career table of the wikipedia pages.
-//            Elements body = doc.select("div#content.mw-body"); // Grabs the senior career table of the wikipedia pages.
-//
-//            System.out.println(body.toString());
-//        }
-
-//        Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Michel_Platini").get();
-
-        // Difference between Platini's and Dalglish's Wikipedia pages:
-        // Platini's information isn't directly in tr (table rows); the table with his playing career is inside a tr.
-        // On the other hand, for Dalglish, the rows are all his playing career information.
-        Document doc = Jsoup.connect("https://en.wikipedia.org/wiki/Kenny_Dalglish").get();
-
-        Elements body = doc.select("div#content.mw-body").select("div#bodyContent.vector-body")
-                .select("div#mw-content-text.mw-body-content.mw-content-ltr").select("div.mw-parser-output")
-                .select("table.infobox.vcard"); // https://gyazo.com/49c12c47d1410bb8161cb3fe5b07db43: this is where this path leads you.
-
-        boolean debounce = false;
         HashMap<String, HashMap<String, String>> playerCareers = new HashMap<>();
-        HashMap<String, String> inner = new HashMap<>(); // Creates the inner HashMap of the footballer's HashMap.
-
-        for (Element e : body.select("tbody").select("tr")) { // This does go through all 25 rows in the V-Table (in Dalglish's case).
-            // The thinking here:
-            // Teams/years played follows directly after the Years / Team / Apps / (Gls) section.
-            // So the section(s) immediately following include team information + years.
-            if (e.select("th.infobox-label").toString().contains("Total")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
-                debounce = false;
-                playerCareers.put("Kenny Dalglish", inner);
+        // Step 3.
+        for (String name: nameList) { // Successfully iterates through the nameList; if you use jObj.get(name), you access the JSON file.
+            String arr[] = jObj.get(name).toString().split(",");
+            String wikiLink = arr[1]; // Leaves me this format: ("wiki":"https:\/\/it.wikipedia.org\/wiki\/Roberto_Mancini")
+//
+            wikiLink = wikiLink.replaceFirst("wiki", "").replace("\"", "").replaceAll("\\\\","").substring(1); // Generates all 162 links.
+//
+            if (name.equals("Míchel")) {
+                wikiLink = "https://en.wikipedia.org/wiki/M%C3%ADchel_(footballer,_born_1963)"; // Michel is a special case.
+            } else if (name.equals("Gary Stevens")) {
+                wikiLink = "https://en.wikipedia.org/wiki/Gary_Stevens_(footballer,_born_1962)"; // Stevens is also a special case.
+            } else if (name.equals("António Oliveira")) { // As is everyone below.
+                wikiLink = "https://en.wikipedia.org/wiki/Ant%C3%B3nio_Oliveira_(footballer,_born_1952)";
+            } else if (name.equals("Georgi Dimitrov")) {
+                wikiLink = "https://en.wikipedia.org/wiki/Georgi_Dimitrov_(footballer,_born_1959)";
             }
 
-            if (debounce) {
-                inner.put(e.select("td.infobox-data.infobox-data-a").text(), e.select("span").text());
-            }
+            // Difference between Platini's and Dalglish's Wikipedia pages:
+            // Platini's information isn't directly in tr (table rows); the table with his playing career is inside a tr.
+            // On the other hand, for Dalglish, the rows are all his playing career information.
 
-            if (e.select("th.infobox-label").toString().contains("Years")) { // Allows for the special teams/years section to be accessed.
-                debounce = true;
-            }
-        }
+            // Problem to solve here: differentiating normal web pages (e.g. Luiz Fernandez, Dalglish) from special ones (Platini, Lato).
+            // Special cases do not have a caption underneath the "infobox-vcard" bit like normal ones do (https://gyazo.com/f87f57dd584c166bdbafa70f01175eef).
+            Document doc = Jsoup.connect(wikiLink).get();
+            Elements body = doc.select("div#content.mw-body").select("div#bodyContent.vector-body")
+                    .select("div#mw-content-text.mw-body-content.mw-content-ltr").select("div.mw-parser-output")
+                    .select("table.infobox.vcard"); // https://gyazo.com/49c12c47d1410bb8161cb3fe5b07db43: this is where this path leads you.
 
-        // Now we try this for Platini.
-        doc = Jsoup.connect("https://en.wikipedia.org/wiki/Grzegorz_Lato").get();
+            boolean debounce = false;
 
-        body = doc.select("div#content.mw-body").select("div#bodyContent.vector-body")
-                .select("div#mw-content-text.mw-body-content.mw-content-ltr").select("div.mw-parser-output")
-                .select("table.infobox.vcard");
+            HashMap<String, String> inner = new HashMap<>(); // Creates the inner HashMap of the footballer's HashMap.
 
-        debounce = false;
-        inner = new HashMap<>();
-
-        for (Element e : body.select("tbody").select("tr")) {
-            if (e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("caption.infobox-title.fn").text().contains("career")) { // https://gyazo.com/19afe79e42e3dffef172945a2ca1ce90: where we're at.
-                for (Element row : e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("tbody").select("tr")) { // Goes throw the rows of the table, starting from underneath "Association football career."
-                    if (row.text().contains("Total")) {
+            if (!(body.select("caption.infobox-title.fn").text().contains("Association"))) { // Differentiating the special ones from the normal ones. Although I don't get why this works.
+                for (Element e : body.select("tbody").select("tr")) { // This does go through all 25 rows in the V-Table (in Dalglish's case).
+                    // The thinking here:
+                    // Teams/years played follows directly after the Years / Team / Apps / (Gls) section.
+                    // So the section(s) immediately following include team information + years.
+                    if (e.select("th.infobox-label").toString().contains("Total")) { // Recognises the end of the team/years section. Only problem might be if the footballer played for a club with "Total" in its name.
                         debounce = false;
-                        playerCareers.put("Michel Platini", inner);
+                        playerCareers.put(name, inner);
                     }
 
                     if (debounce) {
-                        inner.put(row.select("td.infobox-data.infobox-data-a").select("td.infobox-data.infobox-data-a").text(), row.select("th.infobox-label").select("span").text());
+                        inner.put(e.select("td.infobox-data.infobox-data-a").text(), e.select("span").text());
                     }
 
-                    if (row.text().contains("Years")) {
+                    if (e.select("th.infobox-label").toString().contains("Years")) { // Allows for the special teams/years section to be accessed.
                         debounce = true;
                     }
                 }
-            }
-        }
+            } else {
+                for (Element e : body.select("tbody").select("tr")) {
+                    if (e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("caption.infobox-title.fn").text().contains("career")) { // https://gyazo.com/19afe79e42e3dffef172945a2ca1ce90: where we're at.
+                        for (Element row : e.select("td.infobox-full-data").select("table.infobox-subbox.infobox-3cols-child.vcard").select("tbody").select("tr")) { // Goes throw the rows of the table, starting from underneath "Association football career."
+                            if (row.text().contains("Total")) {
+                                debounce = false;
+                                playerCareers.put(name, inner);
+                            }
 
-        System.out.println(playerCareers.get("Michel Platini"));
+                            if (debounce) {
+                                inner.put(row.select("td.infobox-data.infobox-data-a").select("td.infobox-data.infobox-data-a").text(), row.select("th.infobox-label").select("span").text());
+                            }
+
+                            if (row.text().contains("Years")) {
+                                debounce = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            System.out.println(playerCareers.get(name));
+        }
     }
 }
