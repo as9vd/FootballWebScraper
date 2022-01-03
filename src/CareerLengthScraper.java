@@ -15,7 +15,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 // 1. Vladimir Petrovic is a duplicate (fix issue with accent marks).
-// 2. Multiple stints issue solution not attempted for special pages (e.g. Lato, Dejan Savicevic).
 
 public class CareerLengthScraper {
     // THE GENERAL GIST:
@@ -97,10 +96,6 @@ public class CareerLengthScraper {
                         playerCareers.put(name, inner);
                     }
 
-                    if (e.select("td.infobox-data.infobox-data-a").text().contains("→")) {
-//                        System.out.println(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll("loan", "").replaceAll("trial", "")); // Removing all the loan/trial formatting.
-                    }
-
                     if (debounce) {
                         if (inner.containsKey(e.select("td.infobox-data.infobox-data-a").text())) { // Checking for if the footballer played for the same club twice (e.g. Frank Rijkaard and John Wark).
                             inner.put(e.select("td.infobox-data.infobox-data-a").text(), inner.get(e.select("td.infobox-data.infobox-data-a").text()) + ", " + e.select("span").text());
@@ -110,12 +105,10 @@ public class CareerLengthScraper {
                         if (e.select("td.infobox-data.infobox-data-a").text().contains("→")) {
                             if (inner.containsKey(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""))) {
                                 inner.put(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""), inner.get(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", "")) + ", " + e.select("span").text());
-
                                 continue;
                             }
 
                             inner.put(e.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""), e.select("span").text());
-
                             continue;
                         }
 
@@ -136,10 +129,20 @@ public class CareerLengthScraper {
                             }
 
                             if (debounce) {
-//                                if (inner.containsKey(row.select("td.infobox-data.infobox-data-a").text().replaceAll("\\s", ""))) { // Checking for if the footballer played for the same club twice (e.g. Frank Rijkaard and John Wark).
-//                                    inner.put(e.select("td.infobox-data.infobox-data-a").text(), inner.get(e.select("td.infobox-data.infobox-data-a").text()) + ", " + e.select("span").text());
-//                                    continue;
-//                                }
+                                if (inner.containsKey(row.select("td.infobox-data.infobox-data-a").text())) { // Checking for if the footballer played for the same club twice (e.g. Frank Rijkaard and John Wark).
+                                    inner.put(row.select("td.infobox-data.infobox-data-a").text(), inner.get(row.select("td.infobox-data.infobox-data-a").text()) + ", " + row.select("span").text());
+                                    continue;
+                                }
+
+                                if (row.select("td.infobox-data.infobox-data-a").text().contains("→")) {
+                                    if (inner.containsKey(row.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""))) {
+                                        inner.put(row.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""), inner.get(row.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", "")) + ", " + e.select("span").text());
+                                        continue;
+                                    }
+
+                                    inner.put(row.select("td.infobox-data.infobox-data-a").text().replaceAll("→ ", "").replaceAll("[()]", "").replaceAll(" loan", "").replaceAll(" trial", ""), row.select("span").text());
+                                    continue;
+                                }
 
                                 inner.put(row.select("td.infobox-data.infobox-data-a").select("td.infobox-data.infobox-data-a").text(), row.select("th.infobox-label").select("span").text());
                             }
